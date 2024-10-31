@@ -1,0 +1,153 @@
+---
+title: "teoriInvestasi"
+---
+
+# Chapter 8
+
+## Key Terms
+
+|                     |                                   |                     |
+|--------------------|--------------------------------|--------------------|
+| single-factor model | regression equation               | Treynor-Black Model |
+| single-index model  | residuals                         | information ratio   |
+| scatter diagram     | security characteristic line(SCL) |                     |
+
+## Content - Index Models
+
+### 8.1 Pasar sekuritas single-factor
+
+#### List input dari Markowitz Model
+
+Kesuksesan dari aturan seleksi portofolio risiko tergantung dari kualitas list-input, yakni estimasi harapan sekuritas pengembalian (expected security returns) dan matriks kovarians. Dalam jangka panjang, efisiens portofolio akan mengalahkan portofolio yang less reliable list-input dan akibatnya inferior reward-to-risk trade-offs.
+
+Asumsikan analis sekuritasmu dapat menganalisa 50 saham. Artinya list inputmu akan mengandung
+
+$$
+n = 50  \text{ Estimasi dari harapan pengembalian} 
+$$ $$
+n = 50 \text{ Estimasi dari variansi} 
+$$ $$
+\frac{n^2 - n}{2} = \frac {1225}{1325} \text{ estimasi dari kovarians terhadap total estimasi}
+$$
+
+Ini tugas yang berat, khususnya sekilas fakta bagwa portofolio sekuritas 50 relatif kecil. Doubling n ke 100 akan meng - quadruple banyak estimasi ke 5150. Jika n = 3000 masih kurang dari banyak masalah yang termasuk dalam WIlshire 5000 index, kita butuh lebih dari 4.5 milion estimasi.
+
+Kesulitan lain dalam menerapkan Markowitz model dalam optimasi portofolio adalah bahwa error dalam tugas atau estimasi koefisien korelasi dapat mengarahkan ke hasil yang nonkonsisten. ini terjadi karena beberapa set dari koefisien korelasi mutually inconsistent seperti contoh yang didemonstrasikan.
+
+|       |                      |                  |      |      |
+|-------|----------------------|------------------|------|------|
+|       |                      | Matriks Korelasi |      |      |
+| Asset | Standard Deviasi (%) | A                | B    | C    |
+| A     | 20                   | 1.00             | 0.9  | 0.9  |
+| B     | 20                   | 0.90             | 1.00 | 0.00 |
+| C     | 20                   | 0.90             | 0.00 | 1.00 |
+
+Asumsikan kamu membangun portofolio dengan bobot -1.00; 1.00; 1.00; untuk aset A; B; C. Dan menghitung variansi portofolio. Jika kamu menggunakan formula standard deviasi menghasilkan -200. Yang mana tidak mungkin. Kita simpulkan bahwa input dalam estimasi matriks korelasi pasti mutually inconsistent.
+
+Tapi, kita tidak dapat tahu korelasi benar dan hanya dapat mengestimasikan mereka ke dalam beberapa presisi. Sayangnya dalam contoh di atas sangat sulit menentukan secara sekilas apakah matriks korelasi di atas inkosisten.
+
+#### Sistematik versus Risiko Firm-spesifik
+
+Kita fokus pada risiko dengan memisahkan actual rate of return pada sekuritas apapun, i, ke dalam jumlahan dari nilai harapan sebelumnya dengan kejutan tak terantisipasi.
+
+$$
+r_i = E(r_i) + \text{unanticipated surprise}
+$$
+
+Componen unantisipasi dari pengembalian saham dapat disebabkan pengembangan tak terduga dalam firm atau perubahan takterharapkan dalam kondisi yang menyebabkan broad ekonomi. Sehingga kita decompose sumber pengeluaran taktetap itu kedalam tak tetap ekonomi secara keseluruhan, yang mana itu meng captured faktor pasar sistematik yang kita sebut m, dan tak tetap tentang firm secara keseluruhan, yang mana di capture oleh variabel acak firm-spesific yang kita sebut $e_i$ . Kebergantungan itu menggambarkan semua firms yang memiliki kondisi makroekonomi sebagai sumber korelasi diantara keluaran sekuritas mereka.
+
+Faktor pasar, m, mengukur un antisipasi pengembangan dalam makroekonomi. Contohnya itu menyebabkan perbedaan diantara pertumbuhan GDP dan harapan pertumbuhan pasar sebelumnya. Oleh karena nya, m memiliki rata-rata nol (seiring waktu, kejutan akan menuju ke nol), dengan standard deviasi dari $\sigma_m$ . Secara kontras $e_i$ mengukur hanya kejutan firm-spesific. Sebagai kejutan, itu juga memiliki nilai rata-rata nol. Perhatikan bahwa m tidak memiliki subscript karena memiliki faktor penyebab yang sama pada semua sekuritas. Paling penting adalah fakta bahwa $m$ dan $e_i$ diasumsikan tidak korelasi. Karena $e_i$ adalah firm-spesific, itu secara bebas dari shocks terhadap faktor common yang mengefek keseluruhan ekonomi. Variansi dari $r_i$ hadir dari dua uncorrelated sources, sistematik dan firm-spesifik.
+
+Akhir kata, kita mendeteksi bahwa beberapa sekuritas akan lebih sensitif dari yang lain terhadap shocks makroekonomi. Contohnya auto firms mungkina akan merespon secara lebih dramatis terhadap perubahan dalam kondisi ekonomi secara umum dari pada firms farmasi. Kita dapat meng Capture refinement ini dengan memasukkan masing-masing firm sebuah koefisien sensitif terhadap kondisi makro. Oleh karena itu, jika kita denotasikan koefisien sensitif untuk firm $i$ dengan huruf yunani beta, $\beta_i$, kita dapat menulis pengembalian masing-masing saham pada periode berapapun tergantu jumlahan 3 term: harapan pengembalian original, dampak common kejutan makroekonomi ( yang bergantung dari sensitifitas firm terhadap kejutan itu), dan dampak dari kejutan firm-specific.
+
+Model Single-factor:
+
+$$
+r_i = E(r_i) + \beta_i m + e_i
+$$
+
+Ada dua term acak uncorrelated di ruaskanan sehingga total variansi dari $r_i$ adalah
+
+$$
+\sigma_i^2  = \beta_i^2 \sigma_m^2 + \sigma^2(e_i)
+$$
+
+Variansi dari atribut pengembalian terhadap faktor marketwide disebut risiko sistematik dari sekuritas. Komponen dari variansi setara $\beta_i^2 \sigma_m^2$ dan akan semakin besar ketika firm i's koefisien beta membesar. "Cyclical" firms memiliki sensitifitas lebih besar terhadap pasar (beta yang lebih besar) dan oleh karenanya memiliki risiko sistematik lebih besar. komponen Firm-spesific dari variansi pengembalian adalah $\sigma^2 (e_i)$.
+
+Karena index model mengasumsikan bahwa kejutan firm-specific mutually uncorrelated, hanyak sumber dari kovarians diantara pasangan sekuritas adalah bergantung common mereka pada pengembalian pasar. Oleh karena itu, kovarians diantara pengembalian dua firm's bergantung pada sensitifitas dari masing-masing pasar, beta diukur dengan:
+
+$$
+Cov (r_i, r_j) = Cov(\beta_i m +e_i, \beta_j m+ e_j) = \beta_i \beta_j \sigma_m^2
+$$
+
+Dekomposisi dari variabilitas pengembalian menjadi komponen tergantung pada faktor makroekonomic common versus shocks firm-specific itu compelling, tapi itu berguna, kita tetap membutuhkan variable yang memproxy faktor common ini. Variable ini harus tetap bisa diobservasi, oleh karena nya kita dapat mengestimasi volatilitas sebagaimana sensitifitas sekuritas individu terhadap variasi pengeluarannya.
+
+### 8.2 Model Single-index
+
+#### Persamaan Regresi dari model single-index
+
+#### The Expected return Beta relationship
+
+#### Risiko dan kovarians model single-index
+
+#### Himpunan dari estimare yang dibutukan untuk model single-index
+
+#### Model Index dan diservikasi
+
+### 8.3 Estimasi model single-index
+
+#### Karakteristik sekuritas garis - SCL - untuk "Ford"
+
+#### Eksplanatory power dari Ford's SCL
+
+#### Mengestimasi Alpha
+
+#### Mengestimasi Beta
+
+#### Risiko Firm-specific
+
+##### Hasil tipe dari Regresi model index
+
+### 8.4 Versi Industri dari model Index
+
+#### Memprediksi Beta
+
+### 8.5 Mengkonstruksi portofolio menggunakan model single-index
+
+#### Alpha dan analisis sekuritas
+
+#### Portofolio index sebagai Asset investasi
+
+#### Model Single index list input
+
+#### Portofolio risiko optimal dalam model Single-Index
+
+#### Informasi Rasio
+
+#### Simpulan dari optimasi prosedur
+
+#### Contoh
+
+#### Korelasi dan Matriks kovarians
+
+##### Meramal risiko premium
+
+##### Portofolio risiko optimal
+
+##### Apakah model index inferior terhadap model full-covarians
+
+## Summary
+
+1.  Sebuah model single-factor dari ekonomi mengklasifikasi *source of uncertainty* sebagai sistematik faktor (makroekonmi) atau faktor spesifik perusahaan (mikroekonomi). Model index mengasumsikan bahwa faktor makro dapat direpresentasikan oleh *index board* dari *return index.*
+
+2.  Model *single-index* secara drastis mengurangi input yang dibutuhkan dalam prosedur seleksi portofolio Markowitz. Model *single-index* juga memberkan spesialisasi dari *labor* dalam analisis sekuritas.
+
+3.  Berdasarkan *index-model* spesifikasi, risiko sistematik dari portofolio atau aset sama dengan $\beta^2\sigma^2_M$ dan kovarians diantara dua aset setara $\beta_i \beta_j \sigma^2_M$.
+
+4.  *index-model* diestimasikan dengan menerapkan analisis regresi ke *excess rate of return.* Kemiringan kurva regresi dari beta dari aset, dimana intercept adalah alpha aset selama periode sample. Garis regresi juga disebut sebagai garis karakteristik sekuritas (*security characteristics line)*.
+
+5.  praktisi kerap kali mengestimasi *index-model* menggunakan total daripada *excess rate of return*. Ini membuat estimasi alpha sama dengan $\alpha + r_f(1-\beta)$.
+
+6.  Beta menunjukkan tendensi yang berkembang semakin lama ke 1. Beta meramal percobaan aturan untuk memprediksi pergerakan ini. Lebih lagi, variabel financial lain dapat membantu digunakan meramal beta.
+
+7.  Portofolio aktif optimal termasuk analisis sekuritas dalam proporsi langsung terhadap alpha mereka dan dalam proporsi invers terhadap variasi *firm-spesifik.* Portofolio risiko penuh adalah gabungan (*mixture)* dari portofolio aktif dan portofolio pasif *market-index*. Index portofolio digunakan untuk meningkatkan divesifikasi keseluruhan posisi risiko.
