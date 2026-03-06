@@ -1,3 +1,5 @@
 .
 /.quarto/
 !/docs/
+!README.md
+!robots.txt
