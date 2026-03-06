@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "posts/"
 
 website:
   title: "Catatan Belajar"
@@ -56,4 +59,4 @@ execute:
   freeze: auto
   echo: false
 
-editor: visual
+# editor: visual

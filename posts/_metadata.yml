@@ -1,7 +1,7 @@
 # Default metadata for ALL posts in this folder.
 # Individual posts can override any of these values.
 
-author: ""          # Anonim — jangan diisi nama
+author: ""
 date-format: "D MMMM YYYY"
 lang: id
 
