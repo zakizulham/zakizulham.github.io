@@ -1,0 +1,74 @@
+# robots.txt — Catatan Belajar Anonim
+# Diperbarui: 2026-03-06
+#
+# Tujuan: Memblokir bot scraper AI yang digunakan untuk training model bahasa
+# (LLM) dan web scraping massal. Bot ini tidak menghormati privasi konten.
+# Catatan: robots.txt hanya berlaku untuk bot yang PATUH. Bot jahat
+# akan mengabaikannya. Gunakan kombinasi dengan meta tag noindex untuk
+# perlindungan berlapis (lihat README.md).
+
+# ── OpenAI ────────────────────────────────────────────────────────────────
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+# ── Google (AI Training) ──────────────────────────────────────────────────
+# Google-Extended memblokir Gemini & Google AI training (bukan Google Search)
+User-agent: Google-Extended
+Disallow: /
+
+# ── Anthropic (Claude) ────────────────────────────────────────────────────
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+# ── Common Crawl (dipakai banyak LLM: GPT, Llama, dsb.) ─────────────────
+User-agent: CCBot
+Disallow: /
+
+# ── Cohere ────────────────────────────────────────────────────────────────
+User-agent: cohere-ai
+Disallow: /
+
+# ── Meta / Facebook ───────────────────────────────────────────────────────
+User-agent: FacebookBot
+Disallow: /
+
+# ── Apple ─────────────────────────────────────────────────────────────────
+User-agent: Applebot-Extended
+Disallow: /
+
+# ── Bytedance / TikTok ────────────────────────────────────────────────────
+User-agent: Bytespider
+Disallow: /
+
+# ── Perplexity ────────────────────────────────────────────────────────────
+User-agent: PerplexityBot
+Disallow: /
+
+# ── Scrapy & generic crawlers ─────────────────────────────────────────────
+User-agent: Scrapy
+Disallow: /
+
+User-agent: omgili
+Disallow: /
+
+User-agent: omgilibot
+Disallow: /
+
+# ── Semua agen lain: izinkan (termasuk Googlebot untuk indeksasi biasa) ───
+User-agent: *
+Allow: /
+
+# Sitemap (opsional, aktifkan jika Anda generate sitemap)
+# Sitemap: https://yourdomain.github.io/sitemap.xml

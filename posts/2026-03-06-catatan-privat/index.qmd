@@ -1,0 +1,36 @@
+---
+title: "Catatan Privat: Refleksi Belajar Mandiri (Contoh)"
+description: >
+  Ini adalah contoh catatan yang sengaja tidak diindeks mesin pencari.
+  Bisa diakses jika link-nya diketahui, tapi tidak muncul di Google.
+date: 2026-03-06
+categories:
+  - Refleksi
+  - privat
+draft: false
+
+# ─── PRIVACY META TAG ────────────────────────────────────────────────────────
+# Blok ini menyisipkan <meta name="robots" content="noindex, nofollow">
+# langsung ke <head> halaman INI SAJA.
+# Efek:
+#   - Google tidak mengindeks halaman ini di hasil pencarian.
+#   - Bot LLM yang patuh robots-meta akan mengabaikan konten ini.
+#   - Halaman TETAP bisa diakses jika link-nya diklik secara manual.
+# Hapus/komentari blok ini jika ingin halaman bisa diindeks kembali.
+include-in-header:
+  - text: |
+      <meta name="robots" content="noindex, nofollow">
+# ─────────────────────────────────────────────────────────────────────────────
+---
+
+::: callout-warning
+## Halaman Ini Tidak Diindeks
+
+Halaman ini tidak akan muncul di hasil pencarian Google atau dijadikan bahan training LLM — tetapi tetap bisa diakses jika Anda memiliki link-nya. Ini contoh penggunaan tag privasi per-halaman.
+:::
+
+## Isi Catatan
+
+Tulis catatan privat Anda di sini seperti biasa.
+
+Perbedaannya hanya pada blok `include-in-header` di frontmatter di atas — sisanya persis sama seperti catatan biasa.

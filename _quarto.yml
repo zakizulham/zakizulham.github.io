@@ -3,18 +3,57 @@ project:
   output-dir: docs
 
 website:
-  title: "website"
+  title: "Catatan Belajar"
+  description: "Arsip catatan dan refleksi belajar — anonim, jujur, terstruktur."
+  favicon: "styles/favicon.ico"
+  back-to-top-navigation: true
+  repo-actions: [issue]
+
   navbar:
+    background: primary
+    search: true
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: "Beranda"
+        href: index.qmd
+      - text: "Arsip"
+        href: archive.qmd
+      - text: "Tentang"
+        href: about.qmd
+    right:
+      - icon: rss
+        href: index.xml
+        aria-label: "RSS Feed"
+
+  page-footer:
+    left: |
+      Catatan belajar anonim — ditulis untuk diri sendiri.
+    right: |
+      Dibangun dengan [Quarto](https://quarto.org)
+
+  open-graph: true
+  twitter-card: false
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme:
+      light: [flatly, styles/custom-light.scss]
+      dark: [darkly, styles/custom-dark.scss]
+    css: styles/custom.css
     toc: true
+    toc-depth: 3
+    toc-title: "Daftar Isi"
+    toc-location: right
+    number-sections: false
+    smooth-scroll: true
+    highlight-style: github
+    code-copy: true
+    code-overflow: wrap
+    fig-align: center
+    link-external-newwindow: true
+    page-layout: article
+
+execute:
+  freeze: auto
+  echo: false
 
 editor: visual
-

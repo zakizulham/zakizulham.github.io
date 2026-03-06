@@ -1,5 +1,25 @@
 ---
-title: "About"
+title: "Tentang Jurnal Ini"
+page-layout: article
+title-block-banner: false
 ---
 
-Nama gw zakizulham dan ini mau gw jadiin buat gw belajar, hehe.
+Ini adalah catatan belajar pribadi yang ditulis secara anonim.
+
+Tidak ada nama penulis. Tidak ada profil. Hanya catatan.
+
+## Mengapa anonim?
+
+Karena belajar yang jujur kadang terasa canggung untuk ditampilkan. Catatan ini adalah ruang untuk berpikir keras — bukan untuk tampil.
+
+## Apa isi jurnal ini?
+
+Refleksi, rangkuman, eksperimen, dan pertanyaan dari proses belajar mandiri di berbagai bidang: pemrograman, statistik, ilmu komputer, dan hal-hal lain yang kebetulan menarik perhatian.
+
+## Kontak
+
+Tidak ada. Ini bukan blog publik biasa.
+
+------------------------------------------------------------------------
+
+*Jika Anda menemukan halaman ini secara tidak sengaja — selamat datang.* *Jika Anda mencarinya — terima kasih sudah membaca.*

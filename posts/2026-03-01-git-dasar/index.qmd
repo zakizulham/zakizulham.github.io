@@ -1,0 +1,51 @@
+---
+title: "Contoh Catatan: Memahami Konsep Dasar Git"
+description: >
+  Mengapa version control itu seperti mesin waktu — dan kenapa saya baru
+  benar-benar mengerti setelah salah delete branch production.
+date: 2026-03-01
+categories:
+  - Alat & Workflow
+  - Git
+draft: false
+---
+
+## Latar Belakang
+
+Saya sudah pakai Git selama setahun lebih, tapi jujur — saya pakai tanpa benar-benar paham apa yang terjadi di baliknya.
+
+Semuanya berubah setelah satu kesalahan yang cukup mempermalukan: saya `git push --force` ke branch `main` di repo bersama. Semua commit kolega hilang dari remote. Panik. Google. Pelajar.
+
+------------------------------------------------------------------------
+
+## Apa yang Sebenarnya Terjadi di Dalam Git?
+
+Git bukan menyimpan *perubahan* (diff) — Git menyimpan **snapshot**. Setiap commit adalah foto lengkap dari seluruh project pada titik waktu itu, ditambah pointer ke commit sebelumnya.
+
+```         
+A ← B ← C ← D   (HEAD di D)
+```
+
+Ketika kita `git reset --hard B`, HEAD berpindah ke B. Commit C dan D tidak langsung hilang — mereka masih ada di object database sampai garbage collector membersihkannya.
+
+### Apa itu `reflog`?
+
+`git reflog` adalah log pergerakan HEAD. Ini yang menyelamatkan saya:
+
+``` bash
+git reflog
+# 7f3a1bc HEAD@{0}: reset: moving to HEAD~2
+# 4d2e9aa HEAD@{1}: commit: tambah fitur login
+# ...
+
+git checkout 4d2e9aa   # kembali ke commit yang "hilang"
+```
+
+> **Pelajaran utama:** Hampir tidak ada yang benar-benar hilang di Git selama belum di-garbage-collect.
+
+------------------------------------------------------------------------
+
+## Referensi
+
+-   [Pro Git Book](https://git-scm.com/book/en/v2) — gratis, komprehensif
+-   `man git-reflog` — lebih berguna dari yang saya kira

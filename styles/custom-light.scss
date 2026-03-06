@@ -1,0 +1,241 @@
+/*-- scss:defaults --*/
+
+// ─── Colour Palette (neutral, muted – no accent colour) ───────────────────
+$body-bg:             #fafaf8;
+$body-color:          #1a1a1a;
+$link-color:          #2c2c2c;
+$link-hover-color:    #000000;
+$code-color:          #3a3a3a;
+$code-bg:             #f0efec;
+
+$navbar-bg:           #ffffff;
+$navbar-fg:           #1a1a1a;
+$navbar-hl:           #000000;
+
+$sidebar-bg:          #f5f5f3;
+$footer-bg:           #f0efec;
+
+// ─── Typography ───────────────────────────────────────────────────────────
+$font-family-sans-serif:
+  'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+$font-family-monospace:
+  'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+$font-size-root:      17px;
+$line-height-base:    1.78;
+$headings-line-height: 1.25;
+$headings-font-weight: 600;
+
+// ─── Spacing ──────────────────────────────────────────────────────────────
+$spacer:              1rem;
+
+/*-- scss:rules --*/
+
+// ─── Body & Reader Column ─────────────────────────────────────────────────
+body {
+  font-variant-ligatures: common-ligatures;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+// Constrain article body width for comfortable reading (R4DS-style)
+.column-body,
+#quarto-content article .page-columns .column-body {
+  max-width: 680px;
+}
+
+// ─── Headings ─────────────────────────────────────────────────────────────
+h1 { font-size: 1.9rem; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; letter-spacing: -0.01em; border-bottom: 1px solid #e0dedd; padding-bottom: .3rem; }
+h3 { font-size: 1.15rem; }
+h4 { font-size: 1rem;   font-style: italic; }
+
+// ─── Navbar ───────────────────────────────────────────────────────────────
+.navbar {
+  box-shadow: 0 1px 0 #e8e7e5;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+}
+.navbar-brand { font-weight: 700; letter-spacing: -0.02em; }
+
+// ─── Links ────────────────────────────────────────────────────────────────
+a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: #bbb;
+  transition: text-decoration-color 0.15s ease;
+}
+a:hover { text-decoration-color: #1a1a1a; }
+
+// ─── Listing Cards (Homepage) ─────────────────────────────────────────────
+.quarto-listing {
+  margin-top: 1.5rem;
+}
+
+.quarto-listing .list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.quarto-listing-default .listing-item {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid #e0dedd;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: #f5f5f2;
+    padding-left: 8px;
+    transition: padding-left 0.15s ease, background 0.15s ease;
+  }
+
+  .listing-title a {
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: $body-color;
+    &:hover { color: #000; text-decoration: underline; }
+  }
+
+  .listing-description {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.3rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .listing-date {
+    font-size: 0.8rem;
+    color: #888;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 0.35rem;
+  }
+
+  .listing-category {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #666;
+    background: #ebebea;
+    border-radius: 3px;
+    padding: 1px 7px;
+    margin-right: 4px;
+    margin-top: 0.5rem;
+    text-decoration: none;
+
+    &:hover {
+      background: #ddd;
+      color: #222;
+      text-decoration: none;
+    }
+  }
+}
+
+// ─── Homepage Heading & Intro ──────────────────────────────────────────────
+#listing-section-header {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #999;
+  margin: 2rem 0 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+// ─── Tag Filter Bar (Custom JS) ────────────────────────────────────────────
+#tag-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 1rem 0 1.5rem;
+}
+
+.tag-btn {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #555;
+  background: #ebebea;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 2px 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+
+  &:hover {
+    background: #e0dfdd;
+    color: #222;
+  }
+
+  &.active {
+    background: #1a1a1a;
+    color: #f5f5f3;
+    border-color: #1a1a1a;
+  }
+}
+
+#tag-reset-btn {
+  font-size: 0.75rem;
+  color: #888;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-family: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  &:hover { color: #333; }
+}
+
+// ─── TOC ──────────────────────────────────────────────────────────────────
+#TOC {
+  font-size: 0.82rem;
+  line-height: 1.55;
+
+  .toc-title { font-weight: 700; text-transform: uppercase;
+    font-size: 0.68rem; letter-spacing: 0.1em; color: #999; }
+
+  a { text-decoration: none; color: #555; }
+  a:hover { color: #1a1a1a; }
+  li.active > a { color: #1a1a1a; font-weight: 600; }
+}
+
+// ─── Code Blocks ──────────────────────────────────────────────────────────
+pre.sourceCode {
+  border-radius: 4px;
+  border: 1px solid #e0dedd;
+  font-size: 0.82rem;
+}
+
+code { font-size: 0.85em; }
+
+// ─── Footer ───────────────────────────────────────────────────────────────
+.nav-footer {
+  font-size: 0.78rem;
+  color: #888;
+  border-top: 1px solid #e0dedd;
+}
+
+// ─── Blockquote ───────────────────────────────────────────────────────────
+blockquote {
+  border-left: 3px solid #d0cfcd;
+  color: #555;
+  padding-left: 1.2rem;
+  margin-left: 0;
+  font-style: italic;
+}

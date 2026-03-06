@@ -1,0 +1,44 @@
+/* custom.css — minimal runtime overrides that don't need Sass variables */
+
+/* Google Fonts — loaded at runtime */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Ensure listing cards don't inherit Quarto card borders */
+.quarto-listing-default .listing-item .card {
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+}
+
+/* Hide listing item image thumbnails (text-only journal) */
+.quarto-listing-default .listing-item .listing-image {
+    display: none !important;
+}
+
+/* Listing: hide author field (anonymous) */
+.quarto-listing-default .listing-item .listing-author {
+    display: none !important;
+}
+
+/* Inline search input on homepage */
+#listing-search input {
+    font-size: 0.875rem;
+    border-radius: 4px;
+    max-width: 340px;
+}
+
+/* Tag filter section label */
+.filter-section-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999;
+    margin-bottom: 6px;
+}
+
+/* Hidden listing items during filter */
+.listing-item[data-filtered="true"] {
+    display: none !important;
+}
