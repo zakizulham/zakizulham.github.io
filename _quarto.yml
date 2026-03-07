@@ -7,6 +7,8 @@ project:
 
 website:
   title: "Catatan Belajar"
+  site-url: "https://zakizulham.github.io"
+  repo-url: "https://github.com/zakizulham/zakizulham.github.io"
   description: "Arsip catatan dan refleksi belajar — anonim, jujur, terstruktur."
   favicon: "styles/favicon.ico"
   back-to-top-navigation: true

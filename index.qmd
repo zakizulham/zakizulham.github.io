@@ -11,7 +11,7 @@ listing:
   fields: [date, title, description, categories]
   date-format: "D MMMM YYYY"
   max-description-length: 300
-  page-size: 30
+  feed: true
 page-layout: full
 title-block-banner: false
 ---
