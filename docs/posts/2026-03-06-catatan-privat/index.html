@@ -136,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#isi-catatan" id="toc-isi-catatan" class="nav-link active" data-scroll-target="#isi-catatan">Isi Catatan</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/zakizulham/zakizulham.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Laporkan isu</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -170,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Diubah</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">6 Maret 2026</p>
+      <p class="date-modified">7 Maret 2026</p>
     </div>
   </div>
     
@@ -437,7 +437,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/zakizulham\.github\.io");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -777,7 +777,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/zakizulham/zakizulham.github.io/issues/new" class="toc-action"><i class="bi bi-github"></i>Laporkan isu</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Dibangun dengan <a href="https://quarto.org">Quarto</a></p>
 </div>

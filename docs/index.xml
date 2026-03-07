@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Catatan Belajar</title>
+<link>https://zakizulham.github.io/</link>
+<atom:link href="https://zakizulham.github.io/index.xml" rel="self" type="application/rss+xml"/>
+<description>Arsip catatan dan refleksi belajar — anonim, jujur, terstruktur.</description>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Thu, 05 Mar 2026 17:00:00 GMT</lastBuildDate>
+<item>
+  <title>Catatan Privat: Refleksi Belajar Mandiri (Contoh)</title>
+  <link>https://zakizulham.github.io/posts/2026-03-06-catatan-privat/</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Halaman Ini Tidak Diindeks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Halaman ini tidak akan muncul di hasil pencarian Google atau dijadikan bahan training LLM — tetapi tetap bisa diakses jika Anda memiliki link-nya. Ini contoh penggunaan tag privasi per-halaman.</p>
+</div>
+</div>
+<section id="isi-catatan" class="level2">
+<h2 class="anchored" data-anchor-id="isi-catatan">Isi Catatan</h2>
+<p>Tulis catatan privat Anda di sini seperti biasa.</p>
+<p>Perbedaannya hanya pada blok <code>include-in-header</code> di frontmatter di atas — sisanya persis sama seperti catatan biasa.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Kembali ke atas</a> ]]></description>
+  <category>Refleksi</category>
+  <category>privat</category>
+  <guid>https://zakizulham.github.io/posts/2026-03-06-catatan-privat/</guid>
+  <pubDate>Thu, 05 Mar 2026 17:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Contoh Catatan: Memahami Konsep Dasar Git</title>
+  <link>https://zakizulham.github.io/posts/2026-03-01-git-dasar/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="latar-belakang" class="level2">
+<h2 class="anchored" data-anchor-id="latar-belakang">Latar Belakang</h2>
+<p>Saya sudah pakai Git selama setahun lebih, tapi jujur — saya pakai tanpa benar-benar paham apa yang terjadi di baliknya.</p>
+<p>Semuanya berubah setelah satu kesalahan yang cukup mempermalukan: saya <code>git push --force</code> ke branch <code>main</code> di repo bersama. Semua commit kolega hilang dari remote. Panik. Google. Pelajar.</p>
+<hr>
+</section>
+<section id="apa-yang-sebenarnya-terjadi-di-dalam-git" class="level2">
+<h2 class="anchored" data-anchor-id="apa-yang-sebenarnya-terjadi-di-dalam-git">Apa yang Sebenarnya Terjadi di Dalam Git?</h2>
+<p>Git bukan menyimpan <em>perubahan</em> (diff) — Git menyimpan <strong>snapshot</strong>. Setiap commit adalah foto lengkap dari seluruh project pada titik waktu itu, ditambah pointer ke commit sebelumnya.</p>
+<pre><code>A ← B ← C ← D   (HEAD di D)</code></pre>
+<p>Ketika kita <code>git reset --hard B</code>, HEAD berpindah ke B. Commit C dan D tidak langsung hilang — mereka masih ada di object database sampai garbage collector membersihkannya.</p>
+<section id="apa-itu-reflog" class="level3">
+<h3 class="anchored" data-anchor-id="apa-itu-reflog">Apa itu <code>reflog</code>?</h3>
+<p><code>git reflog</code> adalah log pergerakan HEAD. Ini yang menyelamatkan saya:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> reflog</span>
+<span id="cb2-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 7f3a1bc HEAD@{0}: reset: moving to HEAD~2</span></span>
+<span id="cb2-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 4d2e9aa HEAD@{1}: commit: tambah fitur login</span></span>
+<span id="cb2-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ...</span></span>
+<span id="cb2-5"></span>
+<span id="cb2-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> checkout 4d2e9aa   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># kembali ke commit yang "hilang"</span></span></code></pre></div>
+<blockquote class="blockquote">
+<p><strong>Pelajaran utama:</strong> Hampir tidak ada yang benar-benar hilang di Git selama belum di-garbage-collect.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="referensi" class="level2">
+<h2 class="anchored" data-anchor-id="referensi">Referensi</h2>
+<ul>
+<li><a href="https://git-scm.com/book/en/v2">Pro Git Book</a> — gratis, komprehensif</li>
+<li><code>man git-reflog</code> — lebih berguna dari yang saya kira</li>
+</ul>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Kembali ke atas</a> ]]></description>
+  <category>Alat &amp; Workflow</category>
+  <category>Git</category>
+  <guid>https://zakizulham.github.io/posts/2026-03-01-git-dasar/</guid>
+  <pubDate>Sat, 28 Feb 2026 17:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

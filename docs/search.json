@@ -21,13 +21,6 @@
     "text": "Arsip Catatan\n  \n  \n    Kumpulan catatan belajar mandiri — tidak ada nama, tidak ada agenda.\n    Hanya teks, referensi, dan pertanyaan yang belum terjawab.\n  \n\n\n\n\n  Filter berdasarkan topik\n  \n    \n    \n      × Reset filter\n    \n  \n\n\n\n    \n      \n      \n    \n\n\n\n\n\nCatatan Privat: Refleksi Belajar Mandiri (Contoh)\n\n\n\n\n\n\nRefleksi\n\n\nprivat\n\n\n\nIni adalah contoh catatan yang sengaja tidak diindeks mesin pencari. Bisa diakses jika link-nya diketahui, tapi tidak muncul di Google. \n\n\n\n\n\n6 March 2026\n\n\n\n\n\n\n\nContoh Catatan: Memahami Konsep Dasar Git\n\n\n\n\n\n\nAlat & Workflow\n\n\nGit\n\n\n\nMengapa version control itu seperti mesin waktu — dan kenapa saya baru benar-benar mengerti setelah salah delete branch production. \n\n\n\n\n\n1 March 2026\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "archive.html",
-    "href": "archive.html",
-    "title": "Arsip Lengkap",
-    "section": "",
-    "text": "Semua catatan, diurutkan berdasarkan tanggal terbaru. Gunakan kolom pencarian atau klik kolom header untuk mengurutkan.\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nCategories\n\n\n\n\n\n\n2026-03-06\n\n\nCatatan Privat: Refleksi Belajar Mandiri (Contoh)\n\n\nRefleksi, privat\n\n\n\n\n2026-03-01\n\n\nContoh Catatan: Memahami Konsep Dasar Git\n\n\nAlat & Workflow, Git\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Tentang Jurnal Ini",
@@ -56,32 +49,11 @@
     "text": "Kontak\nTidak ada. Ini bukan blog publik biasa.\n\nJika Anda menemukan halaman ini secara tidak sengaja — selamat datang. Jika Anda mencarinya — terima kasih sudah membaca."
   },
   {
-    "objectID": "implementation_plan.html",
-    "href": "implementation_plan.html",
-    "title": "Quarto Anonymous Learning Journal – Implementation Plan",
+    "objectID": "archive.html",
+    "href": "archive.html",
+    "title": "Arsip Lengkap",
     "section": "",
-    "text": "An anonymous, typography-first learning journal built with Quarto. No author profiles. Articles grouped by topic on the homepage, with built-in search/tag filtering, light/dark mode, and strong privacy controls.\n\n\n\n[!IMPORTANT] This is a pure Quarto static site (no React/Redux). The tech stack differs from the user’s global rules (React 18, RTL, etc.) — those rules apply to app projects, not Quarto document sites.\n\n\n[!NOTE] The index.qmd homepage uses Quarto’s built-in listing feature (type: default) grouped by categories. This is the native Quarto way to render snippet cards with snippet text + clickable title hyperlinks. No custom JS needed for the core listing.\n\n\n[!WARNING] Quarto’s built-in search is site-wide and appears in the navbar by default. A homepage tag filter requires either: (a) relying on the listing’s built-in category filter chips, or (b) adding lightweight vanilla JS for live tag filtering. Plan uses option (b) for richer UX as specified.\n\n\n\n\n\n\n\n\n\n\nSets type: website\nActivates Bootswatch flatly (light) + darkly (dark) as the base for a neutral, readable palette — these are the closest to R4DS-style clean book layouts\nEnables search: true in navbar\nSets light-toggle: true for dark/light mode\nSets repo-url and back-to-top-button for a book-like feel\nDefines navbar with logo/title only (no author identity)\nDefines sidebar: false (flat nav, not book-style)\n\n\n\n\n\n\n\n\n\nImports et-book or system serif stack for body text (like R4DS book feel)\nSets comfortable line-height: 1.75, max-width: 680px reader column\nReduces navbar visual weight\nSnippet cards on homepage: clean border, no drop-shadows\nTag pills: muted grey, no color accents\n\n\n\n\n\n\n\n\n\nYAML frontmatter: listing block with type: default, contents: posts, sort: \"date desc\", categories: true, fields: [date, title, description, categories]\nNo author profile block\nShort intro paragraph (site purpose, no identity)\nVanilla JS tag filter: reads URL hash (#tag=xxx) or button click to filter listing cards\nSearch bar: delegates to Quarto’s built-in site search\n\n\n\n\n\n\n\n\n\nDefault author: \"\" (blank, anonymous)\nDefault freeze: true\n\n\n\n\n\nDemonstrates full frontmatter: title, date, description (snippet shown on homepage), categories, and privacy-controlled include-in-header\n\n\n\n\n\n\n\n\nBlocks known AI training scrapers: - GPTBot (OpenAI) - Google-Extended (Gemini training) - CCBot (Common Crawl – used by many LLMs) - anthropic-ai / Claude-Web - Omgilibot, FacebookBot, Applebot-Extended - Generic Disallow: / for all listed bots\n\n\n\nFor articles tagged privacy or sensitive content, the user adds this to individual .qmd frontmatter:\ninclude-in-header:\n  - text: |\n      &lt;meta name=\"robots\" content=\"noindex, nofollow\"&gt;\nThis injects directly into that page’s &lt;head&gt;, invisible to readers, effective for Google & AI crawlers.\n\n\n\n\n\n\n\nUsage guide: how to add posts, how to apply per-page noindex, robots.txt maintenance.\n\n\n\n\n\n\n\n\n\nInstall Quarto if not present: https://quarto.org/docs/get-started/\nFrom project root, run:\nquarto preview\nVerify homepage shows article listing grouped by category with snippet text.\nVerify search icon appears in navbar and returns results.\nClick dark mode toggle — verify neutral dark theme activates.\nNavigate to http://localhost:PORT/robots.txt — verify AI bot rules are present.\nOpen sample post — verify clean single-column layout with comfortable line spacing.\nOn a post with include-in-header noindex, open DevTools → Elements → &lt;head&gt; — verify &lt;meta name=\"robots\" content=\"noindex, nofollow\"&gt; is present."
-  },
-  {
-    "objectID": "implementation_plan.html#user-review-required",
-    "href": "implementation_plan.html#user-review-required",
-    "title": "Quarto Anonymous Learning Journal – Implementation Plan",
-    "section": "",
-    "text": "[!IMPORTANT] This is a pure Quarto static site (no React/Redux). The tech stack differs from the user’s global rules (React 18, RTL, etc.) — those rules apply to app projects, not Quarto document sites.\n\n\n[!NOTE] The index.qmd homepage uses Quarto’s built-in listing feature (type: default) grouped by categories. This is the native Quarto way to render snippet cards with snippet text + clickable title hyperlinks. No custom JS needed for the core listing.\n\n\n[!WARNING] Quarto’s built-in search is site-wide and appears in the navbar by default. A homepage tag filter requires either: (a) relying on the listing’s built-in category filter chips, or (b) adding lightweight vanilla JS for live tag filtering. Plan uses option (b) for richer UX as specified."
-  },
-  {
-    "objectID": "implementation_plan.html#proposed-changes",
-    "href": "implementation_plan.html#proposed-changes",
-    "title": "Quarto Anonymous Learning Journal – Implementation Plan",
-    "section": "",
-    "text": "Sets type: website\nActivates Bootswatch flatly (light) + darkly (dark) as the base for a neutral, readable palette — these are the closest to R4DS-style clean book layouts\nEnables search: true in navbar\nSets light-toggle: true for dark/light mode\nSets repo-url and back-to-top-button for a book-like feel\nDefines navbar with logo/title only (no author identity)\nDefines sidebar: false (flat nav, not book-style)\n\n\n\n\n\n\n\n\n\nImports et-book or system serif stack for body text (like R4DS book feel)\nSets comfortable line-height: 1.75, max-width: 680px reader column\nReduces navbar visual weight\nSnippet cards on homepage: clean border, no drop-shadows\nTag pills: muted grey, no color accents\n\n\n\n\n\n\n\n\n\nYAML frontmatter: listing block with type: default, contents: posts, sort: \"date desc\", categories: true, fields: [date, title, description, categories]\nNo author profile block\nShort intro paragraph (site purpose, no identity)\nVanilla JS tag filter: reads URL hash (#tag=xxx) or button click to filter listing cards\nSearch bar: delegates to Quarto’s built-in site search\n\n\n\n\n\n\n\n\n\nDefault author: \"\" (blank, anonymous)\nDefault freeze: true\n\n\n\n\n\nDemonstrates full frontmatter: title, date, description (snippet shown on homepage), categories, and privacy-controlled include-in-header\n\n\n\n\n\n\n\n\nBlocks known AI training scrapers: - GPTBot (OpenAI) - Google-Extended (Gemini training) - CCBot (Common Crawl – used by many LLMs) - anthropic-ai / Claude-Web - Omgilibot, FacebookBot, Applebot-Extended - Generic Disallow: / for all listed bots\n\n\n\nFor articles tagged privacy or sensitive content, the user adds this to individual .qmd frontmatter:\ninclude-in-header:\n  - text: |\n      &lt;meta name=\"robots\" content=\"noindex, nofollow\"&gt;\nThis injects directly into that page’s &lt;head&gt;, invisible to readers, effective for Google & AI crawlers.\n\n\n\n\n\n\n\nUsage guide: how to add posts, how to apply per-page noindex, robots.txt maintenance."
-  },
-  {
-    "objectID": "implementation_plan.html#verification-plan",
-    "href": "implementation_plan.html#verification-plan",
-    "title": "Quarto Anonymous Learning Journal – Implementation Plan",
-    "section": "",
-    "text": "Install Quarto if not present: https://quarto.org/docs/get-started/\nFrom project root, run:\nquarto preview\nVerify homepage shows article listing grouped by category with snippet text.\nVerify search icon appears in navbar and returns results.\nClick dark mode toggle — verify neutral dark theme activates.\nNavigate to http://localhost:PORT/robots.txt — verify AI bot rules are present.\nOpen sample post — verify clean single-column layout with comfortable line spacing.\nOn a post with include-in-header noindex, open DevTools → Elements → &lt;head&gt; — verify &lt;meta name=\"robots\" content=\"noindex, nofollow\"&gt; is present."
+    "text": "Semua catatan, diurutkan berdasarkan tanggal terbaru. Gunakan kolom pencarian atau klik kolom header untuk mengurutkan.\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nCategories\n\n\n\n\n\n\n2026-03-06\n\n\nCatatan Privat: Refleksi Belajar Mandiri (Contoh)\n\n\nRefleksi, privat\n\n\n\n\n2026-03-01\n\n\nContoh Catatan: Memahami Konsep Dasar Git\n\n\nAlat & Workflow, Git\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "posts/2026-03-01-git-dasar/index.html",
@@ -110,54 +82,5 @@
     "title": "Contoh Catatan: Memahami Konsep Dasar Git",
     "section": "Referensi",
     "text": "Referensi\n\nPro Git Book — gratis, komprehensif\nman git-reflog — lebih berguna dari yang saya kira"
-  },
-  {
-    "objectID": "walkthrough.html",
-    "href": "walkthrough.html",
-    "title": "Walkthrough — Quarto Anonymous Learning Journal",
-    "section": "",
-    "text": "Sebuah scaffold website jurnal belajar anonim berbasis Quarto, dengan: - Beranda listing artikel + tag filter (vanilla JS) - Tema minimalis tipografi-first (light & dark mode) - Sistem privasi berlapis (robots.txt + per-halaman noindex)\n\n\n\n\nzakizulham.github.io/\n├── _quarto.yml\n├── index.qmd\n├── archive.qmd\n├── about.qmd\n├── robots.txt\n├── README.md\n├── styles/\n│   ├── custom-light.scss\n│   ├── custom-dark.scss\n│   └── custom.css\n└── posts/\n    ├── _metadata.yml\n    ├── 2026-03-01-git-dasar/index.qmd\n    └── 2026-03-06-catatan-privat/index.qmd\n\n\n\n\n\n\n\nLight: Bootswatch flatly + custom-light.scss override\nDark: Bootswatch darkly + custom-dark.scss override\nTidak ada warna aksen — semua warna berbasis abu netral\nFont: Inter (sans-serif) via Google Fonts + JetBrains Mono untuk kode\nLebar kolom artikel: max 680px (mengikuti konvensi R4DS)\nLine-height: 1.78 untuk kenyamanan baca teks panjang\n\n\n\n\n\nQuarto listing menggunakan type: default untuk kartu artikel dengan snippet\nField description di frontmatter setiap post menjadi teks cuplikan di homepage\nSearch bar bawaan Quarto aktif di navbar (site-wide)\nTag filter custom via vanilla JS: membaca kategori dari DOM, menyuntikkan tombol filter, men-toggle data-filtered attribute pada kartu, CSS menyembunyikan elemen dengan data-filtered=\"true\"\nFilter mendukung deep-link via URL hash: index.html#tag=Git\n\n\n\n\n\n\n\n\nBlokir 13+ bot AI training di seluruh site. Bot yang diblokir antara lain: GPTBot, Google-Extended, CCBot, ClaudeBot, Bytespider, PerplexityBot.\nBot patuh = tidak scrape site. Normal Googlebot tetap diizinkan.\n\n\n\nTambahkan ke frontmatter artikel sensitif:\ninclude-in-header:\n  - text: |\n      &lt;meta name=\"robots\" content=\"noindex, nofollow\"&gt;\nEfek: Google tidak mengindeks halaman tersebut. Artikel tetap bisa diakses jika link-nya diklik langsung.\nContoh ada di: posts/2026-03-06-catatan-privat/index.qmd\n\n\n\n\n\n\n\n\nYang Dicek\nCara Cek\n\n\n\n\nListing + snippet muncul di beranda\nBuka http://localhost:PORT\n\n\nTag filter muncul dan berfungsi\nKlik tombol tag → kartu artikel terfilter\n\n\nSearch bar aktif\nKlik ikon kaca pembesar di navbar\n\n\nDark mode toggle\nKlik ikon matahari/bulan di navbar\n\n\nnoindex pada catatan privat\nDevTools → Elements → cari &lt;meta name=\"robots\"&gt; di &lt;head&gt;\n\n\nrobots.txt bisa diakses\nhttp://localhost:PORT/robots.txt\n\n\n\n\n\n\n\n\nJalankan quarto preview dan verifikasi poin di atas\nHubungkan ke GitHub Pages: ikuti panduan resmi Quarto\nTambahkan artikel baru dengan menyalin template dari README.md\nPantau bot baru di Dark Visitors dan update robots.txt secara berkala"
-  },
-  {
-    "objectID": "walkthrough.html#apa-yang-dibangun",
-    "href": "walkthrough.html#apa-yang-dibangun",
-    "title": "Walkthrough — Quarto Anonymous Learning Journal",
-    "section": "",
-    "text": "Sebuah scaffold website jurnal belajar anonim berbasis Quarto, dengan: - Beranda listing artikel + tag filter (vanilla JS) - Tema minimalis tipografi-first (light & dark mode) - Sistem privasi berlapis (robots.txt + per-halaman noindex)"
-  },
-  {
-    "objectID": "walkthrough.html#file-yang-dibuat",
-    "href": "walkthrough.html#file-yang-dibuat",
-    "title": "Walkthrough — Quarto Anonymous Learning Journal",
-    "section": "",
-    "text": "zakizulham.github.io/\n├── _quarto.yml\n├── index.qmd\n├── archive.qmd\n├── about.qmd\n├── robots.txt\n├── README.md\n├── styles/\n│   ├── custom-light.scss\n│   ├── custom-dark.scss\n│   └── custom.css\n└── posts/\n    ├── _metadata.yml\n    ├── 2026-03-01-git-dasar/index.qmd\n    └── 2026-03-06-catatan-privat/index.qmd"
-  },
-  {
-    "objectID": "walkthrough.html#keputusan-desain",
-    "href": "walkthrough.html#keputusan-desain",
-    "title": "Walkthrough — Quarto Anonymous Learning Journal",
-    "section": "",
-    "text": "Light: Bootswatch flatly + custom-light.scss override\nDark: Bootswatch darkly + custom-dark.scss override\nTidak ada warna aksen — semua warna berbasis abu netral\nFont: Inter (sans-serif) via Google Fonts + JetBrains Mono untuk kode\nLebar kolom artikel: max 680px (mengikuti konvensi R4DS)\nLine-height: 1.78 untuk kenyamanan baca teks panjang\n\n\n\n\n\nQuarto listing menggunakan type: default untuk kartu artikel dengan snippet\nField description di frontmatter setiap post menjadi teks cuplikan di homepage\nSearch bar bawaan Quarto aktif di navbar (site-wide)\nTag filter custom via vanilla JS: membaca kategori dari DOM, menyuntikkan tombol filter, men-toggle data-filtered attribute pada kartu, CSS menyembunyikan elemen dengan data-filtered=\"true\"\nFilter mendukung deep-link via URL hash: index.html#tag=Git"
-  },
-  {
-    "objectID": "walkthrough.html#cara-kerja-privasi",
-    "href": "walkthrough.html#cara-kerja-privasi",
-    "title": "Walkthrough — Quarto Anonymous Learning Journal",
-    "section": "",
-    "text": "Blokir 13+ bot AI training di seluruh site. Bot yang diblokir antara lain: GPTBot, Google-Extended, CCBot, ClaudeBot, Bytespider, PerplexityBot.\nBot patuh = tidak scrape site. Normal Googlebot tetap diizinkan.\n\n\n\nTambahkan ke frontmatter artikel sensitif:\ninclude-in-header:\n  - text: |\n      &lt;meta name=\"robots\" content=\"noindex, nofollow\"&gt;\nEfek: Google tidak mengindeks halaman tersebut. Artikel tetap bisa diakses jika link-nya diklik langsung.\nContoh ada di: posts/2026-03-06-catatan-privat/index.qmd"
-  },
-  {
-    "objectID": "walkthrough.html#cara-verifikasi-setelah-quarto-preview",
-    "href": "walkthrough.html#cara-verifikasi-setelah-quarto-preview",
-    "title": "Walkthrough — Quarto Anonymous Learning Journal",
-    "section": "",
-    "text": "Yang Dicek\nCara Cek\n\n\n\n\nListing + snippet muncul di beranda\nBuka http://localhost:PORT\n\n\nTag filter muncul dan berfungsi\nKlik tombol tag → kartu artikel terfilter\n\n\nSearch bar aktif\nKlik ikon kaca pembesar di navbar\n\n\nDark mode toggle\nKlik ikon matahari/bulan di navbar\n\n\nnoindex pada catatan privat\nDevTools → Elements → cari &lt;meta name=\"robots\"&gt; di &lt;head&gt;\n\n\nrobots.txt bisa diakses\nhttp://localhost:PORT/robots.txt"
-  },
-  {
-    "objectID": "walkthrough.html#langkah-selanjutnya",
-    "href": "walkthrough.html#langkah-selanjutnya",
-    "title": "Walkthrough — Quarto Anonymous Learning Journal",
-    "section": "",
-    "text": "Jalankan quarto preview dan verifikasi poin di atas\nHubungkan ke GitHub Pages: ikuti panduan resmi Quarto\nTambahkan artikel baru dengan menyalin template dari README.md\nPantau bot baru di Dark Visitors dan update robots.txt secara berkala"
   }
 ]

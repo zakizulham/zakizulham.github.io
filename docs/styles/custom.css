@@ -42,3 +42,40 @@
 .listing-item[data-filtered="true"] {
     display: none !important;
 }
+
+/* ─── Archive Table Fixed Layout ─── */
+/* Force the table to respect defined widths rather than stretching based on text length */
+.quarto-listing-table {
+    table-layout: fixed !important;
+    width: 100% !important;
+}
+
+/* Ensure Headers and Data align on the same vertical line */
+.quarto-listing-table th,
+.quarto-listing-table td {
+    text-align: left !important;
+    vertical-align: top !important;
+    /* Always start from top even on multi-line title */
+}
+
+/* Constrain column widths for a balanced look */
+/* 1. Date column (short, fixed) */
+.quarto-listing-table th:nth-child(1),
+.quarto-listing-table td:nth-child(1) {
+    width: 20% !important;
+}
+
+/* 2. Title column (long, wrapping) */
+.quarto-listing-table th:nth-child(2),
+.quarto-listing-table td:nth-child(2) {
+    width: 55% !important;
+    /* Ensure long titles wrap properly */
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+/* 3. Categories column (short, fixed) */
+.quarto-listing-table th:nth-child(3),
+.quarto-listing-table td:nth-child(3) {
+    width: 25% !important;
+}
